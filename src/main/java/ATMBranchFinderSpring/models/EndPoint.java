@@ -1,6 +1,6 @@
 package ATMBranchFinderSpring.models;
 
 public interface EndPoint {
-    String getName();
+    String getId();
     Class getClassType();
 }

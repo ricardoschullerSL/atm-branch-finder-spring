@@ -6,33 +6,33 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Address {
     @JsonProperty("TownName")
-    private String TownName;
+    private String townName;
     @JsonProperty("PostCode")
-    private String PostCode;
+    private String postCode;
     @JsonProperty("StreetName")
-    private String StreetName;
+    private String streetName;
 
     public String getTownName() {
-        return TownName;
+        return townName;
     }
 
     public void setTownName(String townName) {
-        this.TownName = townName;
+        this.townName = townName;
     }
 
     public String getPostCode() {
-        return PostCode;
+        return postCode;
     }
 
     public void setPostCode(String postCode) {
-        this.PostCode = postCode;
+        this.postCode = postCode;
     }
 
     public String getStreetName() {
-        return StreetName;
+        return streetName;
     }
 
     public void setStreetName(String streetName) {
-        this.StreetName = streetName;
+        this.streetName = streetName;
     }
 }

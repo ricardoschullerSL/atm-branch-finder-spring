@@ -3,10 +3,7 @@ package ATMBranchFinderSpring.services;
 import ATMBranchFinderSpring.models.Bank;
 import ATMBranchFinderSpring.models.EndPoint;
 import ATMBranchFinderSpring.models.EndPointCollection;
-import com.fasterxml.jackson.databind.JavaType;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectReader;
+import com.fasterxml.jackson.databind.*;
 import org.springframework.web.client.RestTemplate;
 
 
@@ -39,6 +36,7 @@ public class GetEndPointDataService implements Service {
                 URI uri = new URI(endPointCollection.getUri());
                 String json = restTemplate.getForObject(uri, String.class);
                 ObjectMapper mapper = new ObjectMapper();
+                mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
                 JavaType arrayType = mapper.getTypeFactory().constructCollectionType(ArrayList.class, endPointCollection.getClassType());
                 ObjectReader reader = mapper.readerFor(arrayType);
                 JsonNode node = mapper.readTree(json).get("data");

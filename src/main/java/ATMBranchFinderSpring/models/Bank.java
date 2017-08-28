@@ -1,6 +1,8 @@
 package ATMBranchFinderSpring.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.ArrayList;
 
 
@@ -63,6 +65,7 @@ public class Bank {
         this.pcas = pcas;
     }
 
+    @JsonIgnore
     public ArrayList<EndPointCollection> getEndPointCollections() {
         return endPointCollections;
     }

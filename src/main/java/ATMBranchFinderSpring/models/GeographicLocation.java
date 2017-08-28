@@ -4,23 +4,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class GeographicLocation {
     @JsonProperty("Latitude")
-    private double Latitude;
+    private double latitude;
     @JsonProperty("Longitude")
-    private double Longitude;
+    private double longitude;
 
     public double getLatitude() {
-        return Latitude;
+        return latitude;
     }
 
     public void setLatitude(double latitude) {
-        this.Latitude = latitude;
+        this.latitude = latitude;
     }
 
     public double getLongitude() {
-        return Longitude;
+        return longitude;
     }
 
     public void setLongitude(double longitude) {
-        this.Longitude = longitude;
+        this.longitude = longitude;
     }
 }

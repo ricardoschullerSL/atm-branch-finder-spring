@@ -1,5 +1,6 @@
 package ATMBranchFinderSpring.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -12,8 +13,6 @@ public class Branch implements EndPoint{
     private Address address;
     @JsonProperty("GeographicLocation")
     private GeographicLocation geographicLocation;
-
-    private String name = "Branch";
 
     public String getBranchName() {
         return branchName;
@@ -40,12 +39,14 @@ public class Branch implements EndPoint{
     }
 
     @Override
-    public String getName() {
-        return name;
+    public String getId() {
+        return branchName;
     }
 
     @Override
+    @JsonIgnore
     public Class getClassType() {
         return Branch.class;
     }
+
 }

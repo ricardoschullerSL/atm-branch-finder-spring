@@ -1,5 +1,6 @@
 package ATMBranchFinderSpring.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -41,11 +42,12 @@ public class PCA implements EndPoint{
     }
 
     @Override
-    public String getName() {
+    public String getId() {
         return name;
     }
 
     @Override
+    @JsonIgnore
     public Class getClassType() {
         return PCA.class;
     }

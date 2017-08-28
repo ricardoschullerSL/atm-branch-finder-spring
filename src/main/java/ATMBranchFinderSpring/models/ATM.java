@@ -1,5 +1,6 @@
 package ATMBranchFinderSpring.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -7,43 +8,38 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ATM implements EndPoint {
 
     @JsonProperty("ATMID")
-    private String ATMID;
+    private String atmid;
     @JsonProperty("Address")
-    private Address Address;
+    private Address address;
     @JsonProperty("GeographicLocation")
-    private GeographicLocation GeographicLocation;
-
-    private String name = "ATM";
+    private GeographicLocation geographicLocation;
 
     public String getATMID() {
-        return ATMID;
+        return atmid;
     }
 
-    public void setATMID(String id) {
-        ATMID = id;
+    public void setATMID(String atmid) {
+        this.atmid = atmid;
     }
 
     public Address getAddress() {
-        return Address;
+        return address;
     }
 
     public void setAddress(Address address) {
-        this.Address = address;
+        this.address = address;
     }
 
     public GeographicLocation getGeographicLocation() {
-        return GeographicLocation;
+        return geographicLocation;
     }
 
     public void setGeographicLocation(GeographicLocation geographicLocation) {
-        GeographicLocation = geographicLocation;
+        this.geographicLocation = geographicLocation;
     }
-
+    @JsonIgnore()
     public Class getClassType() {
         return ATM.class;
     }
-
-    public String getName() {
-        return name;
-    }
+    public String getId() {return atmid; }
 }
