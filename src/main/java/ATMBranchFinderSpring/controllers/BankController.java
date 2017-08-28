@@ -1,7 +1,11 @@
 package ATMBranchFinderSpring.controllers;
 
+import ATMBranchFinderSpring.models.ATM;
 import ATMBranchFinderSpring.models.Bank;
+import ATMBranchFinderSpring.models.Branch;
+import ATMBranchFinderSpring.models.PCA;
 import ATMBranchFinderSpring.repos.BankRepo;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,4 +32,30 @@ public class BankController {
 
         return bank;
     }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/banks/{bankId}/atms", produces = "application/json")
+    public Collection<ATM> getATMsByBankId(@PathVariable String bankId) {
+        Bank bank = bankRepo.FindByBankId(bankId);
+        if (bank == null) throw new BankNotFoundException();
+
+        return bank.getAtms();
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/banks/{bankId}/branches", produces = "application/json")
+    public Collection<Branch> getBranchesByBankId(@PathVariable String bankId) {
+        Bank bank = bankRepo.FindByBankId(bankId);
+        if (bank == null) throw new BankNotFoundException();
+
+        return bank.getBranches();
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/banks/{bankId}/pca", produces = "application/json")
+    public Collection<PCA> getPCAsByBankId(@PathVariable String bankId) {
+
+        Bank bank = bankRepo.FindByBankId(bankId);
+        if (bank == null) throw new BankNotFoundException();
+
+        return bank.getPcas();
+    }
+
 }
