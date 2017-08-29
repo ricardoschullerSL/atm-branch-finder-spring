@@ -49,6 +49,14 @@ public class BankController {
         return bank.getBranches();
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/banks/{bankId}/branches/city/{cityName}", produces = "application/json")
+    public Collection<Branch> getBranchesByBankIdAndCity(@PathVariable String bankId, @PathVariable String cityName) {
+        Bank bank = bankRepo.FindByBankId(bankId);
+        if (bank == null) throw new BankNotFoundException();
+        Collection<Branch> branches = bankRepo.GetBranchesByBankIdAndCityName(bankId, cityName);
+        return bank.getBranches();
+    }
+
     @RequestMapping(method = RequestMethod.GET, value = "/banks/{bankId}/pca", produces = "application/json")
     public Collection<PCA> getPCAsByBankId(@PathVariable String bankId) {
 
