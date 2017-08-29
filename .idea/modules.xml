@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/myfirstmavenproject.iml" filepath="$PROJECT_DIR$/myfirstmavenproject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/atm-branch-finder-spring.iml" filepath="$PROJECT_DIR$/atm-branch-finder-spring.iml" />
     </modules>
   </component>
 </project>

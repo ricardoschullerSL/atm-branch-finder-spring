@@ -13,6 +13,10 @@ public class ATM implements EndPoint {
     private Address address;
     @JsonProperty("GeographicLocation")
     private GeographicLocation geographicLocation;
+    @JsonProperty("Currency")
+    private String[] currency;
+    @JsonProperty("distanceSquared")
+    private double distanceSquared;
 
     public String getATMID() {
         return atmid;
@@ -37,6 +41,23 @@ public class ATM implements EndPoint {
     public void setGeographicLocation(GeographicLocation geographicLocation) {
         this.geographicLocation = geographicLocation;
     }
+
+    public String[] getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String[] currency) {
+        this.currency = currency;
+    }
+
+    public double getDistanceSquared() {
+        return distanceSquared;
+    }
+
+    public void setDistanceSquared(double distanceSquared) {
+        this.distanceSquared = distanceSquared;
+    }
+
     @JsonIgnore()
     public Class getClassType() {
         return ATM.class;
