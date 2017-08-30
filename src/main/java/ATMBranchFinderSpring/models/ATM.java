@@ -18,6 +18,8 @@ public class ATM implements EndPoint {
     @JsonProperty("distanceSquared")
     private double distanceSquared;
 
+    public ATM() {};
+
     public String getATMID() {
         return atmid;
     }

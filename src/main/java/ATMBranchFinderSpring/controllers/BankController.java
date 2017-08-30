@@ -20,7 +20,7 @@ public class BankController {
     private BankRepo bankRepo;
 
     @Autowired
-    BankController(BankRepo bankRepo) { this.bankRepo = bankRepo; }
+    public BankController(BankRepo bankRepo) { this.bankRepo = bankRepo; }
 
     @RequestMapping(method = RequestMethod.GET, value = "/banks", produces = "application/json")
     public Collection<Bank> allBanks() {return bankRepo.GetAll(); }

@@ -13,6 +13,8 @@ public class PCA implements EndPoint{
     private String productDescription;
     @JsonProperty("ProductURL")
     private String[] productUrlArray;
+    @JsonProperty("CardWithdrawalLimit")
+    private String cardWithdrawalLimit;
 
     private String name = "Personal Current Account";
 
@@ -39,6 +41,14 @@ public class PCA implements EndPoint{
 
     public void setProductUrlArray(String[] productUrlArray) {
         this.productUrlArray = productUrlArray;
+    }
+
+    public String getCardWithdrawalLimit() {
+        return cardWithdrawalLimit;
+    }
+
+    public void setCardWithdrawalLimit(String cardWithdrawalLimit) {
+        this.cardWithdrawalLimit = cardWithdrawalLimit;
     }
 
     @Override

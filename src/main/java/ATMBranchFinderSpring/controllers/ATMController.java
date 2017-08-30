@@ -19,18 +19,18 @@ public class ATMController {
 
 
     @Autowired
-    ATMController( ATMRepo atmRepo) {
+    public ATMController( ATMRepo atmRepo) {
         this.atmRepo = atmRepo;
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/atms",
                     produces="application/json")
-    public Collection<ATM> allATMs() {
+    public Collection<ATM> allAtms() {
         return atmRepo.GetAll();
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/atms/{id}")
-    public ATM atm(@PathVariable int id) { return atmRepo.Get(id); }
+    public ATM singleAtm(@PathVariable int id) { return atmRepo.Get(id); }
 
     @RequestMapping(method = RequestMethod.GET, value = "/atms/city/{cityName}", produces="application/json")
     public Collection<ATM> FindAtmsByCity(@PathVariable String cityName) {return atmRepo.FindByCity(cityName); }
