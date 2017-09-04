@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ATM implements EndPoint {
 
     @JsonProperty("ATMID")
-    private String atmid;
+    private String atmId;
     @JsonProperty("Address")
     private Address address;
     @JsonProperty("GeographicLocation")
@@ -20,12 +20,12 @@ public class ATM implements EndPoint {
 
     public ATM() {};
 
-    public String getATMID() {
-        return atmid;
+    public String getAtmId() {
+        return atmId;
     }
 
-    public void setATMID(String atmid) {
-        this.atmid = atmid;
+    public void setAtmId(String atmId) {
+        this.atmId = atmId;
     }
 
     public Address getAddress() {
@@ -64,5 +64,5 @@ public class ATM implements EndPoint {
     public Class getClassType() {
         return ATM.class;
     }
-    public String getId() {return atmid; }
+    public String getId() {return atmId; }
 }

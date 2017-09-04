@@ -3,8 +3,8 @@ package ATMBranchFinderSpring.repos;
 import java.util.List;
 
 public interface Repository<E> {
-    E Get(int id);
-    List<E> GetAll();
-    void Add(E entity);
-    void Remove(int id);
+    E get(int id);
+    List<E> getAll();
+    void add(E entity);
+    void remove(int id);
 }

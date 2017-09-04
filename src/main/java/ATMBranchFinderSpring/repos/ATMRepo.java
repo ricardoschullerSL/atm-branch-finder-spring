@@ -16,7 +16,7 @@ public class ATMRepo implements Repository<ATM> {
         atms = new ArrayList<ATM>();
     };
 
-    public void SetAllATMs(ArrayList<Bank> banks) {
+    public void setAllATMs(ArrayList<Bank> banks) {
         atms = new ArrayList<ATM>();
         for (Bank bank : banks) {
             atms.addAll(bank.getAtms());
@@ -25,27 +25,27 @@ public class ATMRepo implements Repository<ATM> {
     }
 
     @Override
-    public ATM Get(int id) {
+    public ATM get(int id) {
         return atms.get(id);
     }
 
     @Override
-    public List<ATM> GetAll() {
+    public List<ATM> getAll() {
         return atms;
     }
 
     @Override
-    public void Add(ATM entity) {
+    public void add(ATM entity) {
         atms.add(entity);
     }
 
     @Override
-    public void Remove(int id) {
+    public void remove(int id) {
         atms.remove(id);
     }
 
 
-    public List<ATM> FindByCity(String city) {
+    public List<ATM> findByCity(String city) {
         List<ATM> filteredAtms = new ArrayList<ATM>();
         for (ATM atm : atms) {
             if (atm.getAddress().getTownName() == null) {

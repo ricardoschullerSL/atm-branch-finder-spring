@@ -23,11 +23,11 @@ public class BankController {
     public BankController(BankRepo bankRepo) { this.bankRepo = bankRepo; }
 
     @RequestMapping(method = RequestMethod.GET, value = "/banks", produces = "application/json")
-    public Collection<Bank> allBanks() {return bankRepo.GetAll(); }
+    public Collection<Bank> allBanks() {return bankRepo.getAll(); }
 
     @RequestMapping(method = RequestMethod.GET, value = "/banks/{bankId}", produces = "application/json")
     public Bank getBankById(@PathVariable String bankId) {
-        Bank bank = bankRepo.FindByBankId(bankId);
+        Bank bank = bankRepo.findByBankId(bankId);
         if (bank == null) throw new BankNotFoundException();
 
         return bank;
@@ -35,7 +35,7 @@ public class BankController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/banks/{bankId}/atms", produces = "application/json")
     public Collection<ATM> getATMsByBankId(@PathVariable String bankId) {
-        Bank bank = bankRepo.FindByBankId(bankId);
+        Bank bank = bankRepo.findByBankId(bankId);
         if (bank == null) throw new BankNotFoundException();
 
         return bank.getAtms();
@@ -43,7 +43,7 @@ public class BankController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/banks/{bankId}/branches", produces = "application/json")
     public Collection<Branch> getBranchesByBankId(@PathVariable String bankId) {
-        Bank bank = bankRepo.FindByBankId(bankId);
+        Bank bank = bankRepo.findByBankId(bankId);
         if (bank == null) throw new BankNotFoundException();
 
         return bank.getBranches();
@@ -51,16 +51,16 @@ public class BankController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/banks/{bankId}/branches/city/{cityName}", produces = "application/json")
     public Collection<Branch> getBranchesByBankIdAndCity(@PathVariable String bankId, @PathVariable String cityName) {
-        Bank bank = bankRepo.FindByBankId(bankId);
+        Bank bank = bankRepo.findByBankId(bankId);
         if (bank == null) throw new BankNotFoundException();
-        Collection<Branch> branches = bankRepo.GetBranchesByBankIdAndCityName(bankId, cityName);
+        Collection<Branch> branches = bankRepo.getBranchesByBankIdAndCityName(bankId, cityName);
         return bank.getBranches();
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/banks/{bankId}/pca", produces = "application/json")
     public Collection<PCA> getPCAsByBankId(@PathVariable String bankId) {
 
-        Bank bank = bankRepo.FindByBankId(bankId);
+        Bank bank = bankRepo.findByBankId(bankId);
         if (bank == null) throw new BankNotFoundException();
 
         return bank.getPcas();

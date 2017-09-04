@@ -15,16 +15,16 @@ public class BankRepo implements Repository<Bank> {
         banks = new ArrayList<Bank>();
     }
 
-    public void SetAllBanks(ArrayList<Bank> banks) {
+    public void setAllBanks(ArrayList<Bank> banks) {
         this.banks = banks;
         System.out.format("%d number of banks set. %n", banks.size() );
     }
 
     @Override
-    public Bank Get(int id) {
+    public Bank get(int id) {
         return banks.get(id);
     }
-    public Bank FindByBankId(String bankId) {
+    public Bank findByBankId(String bankId) {
         for (Bank bank: banks) {
             if (bank.getBankId().toUpperCase().equals(bankId.toUpperCase())) {
                 return bank;
@@ -32,8 +32,8 @@ public class BankRepo implements Repository<Bank> {
         }
         return null;
     }
-    public Collection<Branch> GetBranchesByBankIdAndCityName(String bankId, String cityName) {
-        Bank bank = FindByBankId(bankId);
+    public Collection<Branch> getBranchesByBankIdAndCityName(String bankId, String cityName) {
+        Bank bank = findByBankId(bankId);
         if (bank == null) return null;
         Collection<Branch> branches = new ArrayList<Branch>();
         for (Branch branch: bank.getBranches()) {
@@ -45,15 +45,15 @@ public class BankRepo implements Repository<Bank> {
         return branches;
     }
     @Override
-    public ArrayList<Bank> GetAll() {
+    public ArrayList<Bank> getAll() {
         return banks;
     }
     @Override
-    public void Add(Bank bank) {
+    public void add(Bank bank) {
         banks.add(bank);
     }
     @Override
-    public void Remove(int id) {
+    public void remove(int id) {
         banks.remove(id);
     }
 

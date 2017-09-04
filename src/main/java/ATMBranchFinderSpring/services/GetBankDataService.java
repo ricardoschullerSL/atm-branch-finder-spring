@@ -14,7 +14,7 @@ public class GetBankDataService implements Service {
     public GetBankDataService(BankRepo bankRepo) {
         this.name = "GetBankDataService";
         this.bankRepo = bankRepo;
-        this.banks = bankRepo.GetAll();
+        this.banks = bankRepo.getAll();
     }
 
     @Override

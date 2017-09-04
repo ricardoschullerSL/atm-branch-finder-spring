@@ -2,7 +2,6 @@ package ATMBranchFinderSpring.controllers;
 
 import ATMBranchFinderSpring.models.ATM;
 import ATMBranchFinderSpring.repos.ATMRepo;
-import ATMBranchFinderSpring.repos.BankRepo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,18 +25,18 @@ public class ATMController {
     @RequestMapping(method = RequestMethod.GET, value = "/atms",
                     produces="application/json")
     public Collection<ATM> allAtms() {
-        return atmRepo.GetAll();
+        return atmRepo.getAll();
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/atms/{id}")
-    public ATM singleAtm(@PathVariable int id) { return atmRepo.Get(id); }
+    public ATM singleAtm(@PathVariable int id) { return atmRepo.get(id); }
 
     @RequestMapping(method = RequestMethod.GET, value = "/atms/city/{cityName}", produces="application/json")
-    public Collection<ATM> FindAtmsByCity(@PathVariable String cityName) {return atmRepo.FindByCity(cityName); }
+    public Collection<ATM> findAtmsByCity(@PathVariable String cityName) {return atmRepo.findByCity(cityName); }
 
     @RequestMapping(method = RequestMethod.GET, value = "/atms/userlocation/{userLatitude}/{userLongitude}/{maxDistance}")
-    public Collection<ATM> FindAtmsByUserLocation(@PathVariable double userLatitude, @PathVariable double userLongitude, @PathVariable double maxDistance) {
-        ArrayList<ATM> atms = (ArrayList<ATM>) atmRepo.GetAll();
+    public Collection<ATM> findAtmsByUserLocation(@PathVariable double userLatitude, @PathVariable double userLongitude, @PathVariable double maxDistance) {
+        ArrayList<ATM> atms = (ArrayList<ATM>) atmRepo.getAll();
         ArrayList<ATM> filteredAtms = new ArrayList<ATM>();
 
         for(ATM atm: atms) {

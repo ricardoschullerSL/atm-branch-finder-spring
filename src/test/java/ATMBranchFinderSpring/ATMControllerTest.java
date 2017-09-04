@@ -22,7 +22,7 @@ public class ATMControllerTest {
         geographicLocation1.setLatitude(1.5);
         geographicLocation1.setLongitude(1.5);
         ATM atm1 = new ATM();
-        atm1.setATMID("testATM1");
+        atm1.setAtmId("testATM1");
         atm1.setGeographicLocation(geographicLocation1);
         Address address1 = new Address();
         address1.setTownName("Bristol");
@@ -36,7 +36,7 @@ public class ATMControllerTest {
         geographicLocation2.setLongitude(10);
         geographicLocation2.setLatitude(10);
         ATM atm2 = new ATM();
-        atm2.setATMID("testATM2");
+        atm2.setAtmId("testATM2");
         atm2.setGeographicLocation(geographicLocation2);
         Address address2 = new Address();
         address2.setTownName("London");
@@ -45,8 +45,8 @@ public class ATMControllerTest {
         atm2.setAddress(address2);
         atm2.setCurrency(currency);
 
-        atmRepo.Add(atm1);
-        atmRepo.Add(atm2);
+        atmRepo.add(atm1);
+        atmRepo.add(atm2);
     }
 
     @Test
@@ -58,18 +58,18 @@ public class ATMControllerTest {
     @Test
     public void singleAtmTest() {
         SetUp();
-        assertEquals("testATM1", atmController.singleAtm(0).getATMID());
+        assertEquals("testATM1", atmController.singleAtm(0).getAtmId());
     }
 
     @Test
     public void FindAtmsByCityTest() {
         SetUp();
-        assertEquals(1, atmController.FindAtmsByCity("Bristol").size());
+        assertEquals(1, atmController.findAtmsByCity("Bristol").size());
     }
 
     @Test
     public void FindAtmsByUserLocationTest() {
         SetUp();
-        assertEquals(1, atmController.FindAtmsByUserLocation(1.5,1.5,2).size());
+        assertEquals(1, atmController.findAtmsByUserLocation(1.5,1.5,2).size());
     }
 }

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/atm-branch-finder-spring.iml" filepath="$PROJECT_DIR$/atm-branch-finder-spring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/front-end-server.iml" filepath="$PROJECT_DIR$/front-end-server.iml" />
     </modules>
   </component>
 </project>

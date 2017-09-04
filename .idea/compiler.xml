@@ -6,12 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="atm-branch-finder-spring" />
+        <module name="front-end-server" />
         <module name="myfirstmavenproject" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="atm-branch-finder-spring" target="1.8" />
+      <module name="front-end-server" target="1.8" />
       <module name="myfirstmavenproject" target="1.8" />
     </bytecodeTargetLevel>
   </component>
